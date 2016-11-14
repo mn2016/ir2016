@@ -7,7 +7,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.SortedSet;
 
 import de.uni_koeln.spinfo.textengineering.ir.basic.Corpus;
 import de.uni_koeln.spinfo.textengineering.ir.basic.InformationRetrieval;
@@ -60,7 +59,7 @@ public class InvertedIndex implements InformationRetrieval {
 		
 		Set<Integer> result = allPostingsLists.get(0);
 		
-		for (Set postings : allPostingsLists) {
+		for (Set<?> postings : allPostingsLists) {
 			result.retainAll(postings);
 			//result.addAll(postings);
 		}
