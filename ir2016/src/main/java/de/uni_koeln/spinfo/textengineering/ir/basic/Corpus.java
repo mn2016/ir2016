@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class Corpus { 
+public class Corpus {
 
 	private String text;
 	private List<Work> works;
