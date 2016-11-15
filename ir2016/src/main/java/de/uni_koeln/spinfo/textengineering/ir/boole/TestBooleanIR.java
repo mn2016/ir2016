@@ -11,7 +11,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import de.uni_koeln.spinfo.textengineering.ir.basic.Corpus;
-import de.uni_koeln.spinfo.textengineering.ir.basic.InformationRetrieval;
+import de.uni_koeln.spinfo.textengineering.ir.basic.Searcher;
 
 /**
  * @author spinfo
@@ -21,7 +21,7 @@ public class TestBooleanIR {
 
 	private static Corpus corpus;
 	private String query;
-	private InformationRetrieval searcher;
+	private Searcher searcher;
 
 	@BeforeClass
 	public static void setUp() throws Exception {
@@ -60,7 +60,8 @@ public class TestBooleanIR {
 	
 	@Test
 	public void testInvertedIndex() {
-		
+		// Testen, ob Suche in invertiertem Index ein Ergebnis liefert
+
 		System.out.println();
 		System.out.println("Invertierter Index:");
 		System.out.println("-------------------");
@@ -70,9 +71,10 @@ public class TestBooleanIR {
 		
 		Set<Integer> result = searcher.search(query);
 		assertTrue("Ergebnis sollte nicht leer sein", result.size() > 0);
-		System.out.println("OR-Ergebnis für " + query + ": " + result);
-
-		
+		System.out.println("Ergebnis für " + query + ": " + result);
+		for (Integer id : result) {
+			System.out.println("id: " + id + " - " + corpus.getWorks().get(id));
+		}
 	}
 
 }
